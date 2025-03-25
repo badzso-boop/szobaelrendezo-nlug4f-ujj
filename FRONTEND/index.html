@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Szoba Bútor Elrendezés</title>
+    <style>
+        /* Egyszerű stílusok a táblázathoz */
+        .room-table {
+            display: grid;
+            /* gap: 1px; */
+            margin-top: 20px;
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .empty {
+            background-color: #fff;
+        }
+
+        .furniture {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+        }
+
+        /* .buffer {
+            background-color: #f0f0f0;
+        } */
+
+        button {
+            margin: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+
+
+
+
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+
+        td {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>Szoba Bútor Elrendezés</h1>
+    <button onclick="sendRequest()">Elrendezés Kirajzolása</button>
+    <div id="room"></div>
+
+
+
+    <table id="matrix-table"></table>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <title>Szoba Bútor Elrendezés</title>
     <style>
-        /* Egyszerű stílusok a táblázathoz */
         .room-table {
             display: grid;
             /* gap: 1px; */
@@ -31,9 +31,16 @@
             color: white;
         }
 
-        /* .buffer {
-            background-color: #f0f0f0;
-        } */
+        .furniture-item {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        #furnituresContainer {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
         button {
             margin: 20px;
@@ -47,11 +54,6 @@
         button:hover {
             background-color: #45a049;
         }
-
-
-
-
-
 
         table {
             border-collapse: collapse;
@@ -70,7 +72,25 @@
 </head>
 <body>
     <h1>Szoba Bútor Elrendezés</h1>
-    <button onclick="sendRequest()">Elrendezés Kirajzolása</button>
+
+    <form id="roomForm">
+        <div class="form-group">
+          <label>Szoba szélesség (m):</label><br>
+          <input type="number" step="0.01" id="roomWidth" required>
+        </div>
+    
+        <div class="form-group">
+          <label>Szoba hosszúság (m):</label><br>
+          <input type="number" step="0.01" id="roomLength" required>
+        </div>
+    
+        <h3>Bútorok</h3>
+        <div id="furnituresContainer"></div>
+    
+        <button type="button" onclick="addFurniture()">Új bútor hozzáadása</button><br><br>
+    
+        <button type="submit">Küldés</button>
+    </form>
     <div id="room"></div>
 
 
@@ -78,5 +98,7 @@
     <table id="matrix-table"></table>
 
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js" integrity="sha384-VQqxDN0EQCkWoxt/0vsQvZswzTHUVOImccYmSyhJTp7kGtPed0Qcx8rK9h9YEgx+" crossorigin="anonymous"></script>
 </body>
 </html>

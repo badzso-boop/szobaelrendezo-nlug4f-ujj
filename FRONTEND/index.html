@@ -42,19 +42,6 @@
             flex-wrap: wrap;
         }
 
-        button {
-            margin: 20px;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #45a049;
-        }
-
         table {
             border-collapse: collapse;
             width: 100%;
@@ -67,6 +54,10 @@
             text-align: center;
             vertical-align: middle;
             border: 1px solid #ddd;
+        }
+
+        #newfurniture {
+            color: white;
         }
     </style>
 </head>
@@ -89,13 +80,13 @@
     
         <h3 class="text-center mt-3">Bútorok és méreteik</h3>
         <div class="w-50 m-auto text-center">
-            <button type="button" onclick="addFurniture()">Új bútor hozzáadása</button><br><br>
+            <button type="button" onclick="addFurniture()" id="newfurniture" class="btn btn-info ">Új bútor hozzáadása</button><br><br>
         </div>
 
         <div id="furnituresContainer"></div>
     
         <div class="w-50 m-auto text-center">
-            <button type="submit">Küldés</button>
+            <button type="submit" class="btn btn-primary my-3">Küldés</button>
         </div>
     </form>
     <div id="room"></div>

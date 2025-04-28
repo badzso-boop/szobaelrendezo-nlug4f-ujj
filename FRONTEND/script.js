@@ -24,11 +24,11 @@ function addFurniture() {
   furnitureDiv.className = 'furniture-item';
   furnitureDiv.innerHTML = `
     <label>Név:</label><br>
-    <input type="text" name="name" required><br>
+    <input type="text" name="name" required placeholder="Ágy"><br>
     <label>Szélesség (m):</label><br>
-    <input type="number" step="0.01" name="width" required><br>
+    <input type="number" step="0.01" name="width" required placeholder="4.3 m"><br>
     <label>Hosszúság (m):</label><br>
-    <input type="number" step="0.01" name="length" required><br>
+    <input type="number" step="0.01" name="length" required placeholder="5.2 m"><br>
     <button type="button" onclick="removeFurniture(this)">Eltávolítás</button>
   `;
   

@@ -1,20 +1,77 @@
 // A JSON adat, amit küldünk a szervernek
-const requestData = {
-  "width": 5.2,
-  "length": 2.4,
-  "furnitures": [
-      { "name": "agy", "width": 1.3, "length": 2 },
-      { "name": "szekreny", "width": 1.7, "length": 0.6 },
-      { "name": "szonyeg", "width": 0.8, "length": 1.8 },
-      { "name": "ejjeli szekreny", "width": 0.5, "length": 0.5 },
-      { "name": "szonyeg", "width": 1.2, "length": 0.4 },
-      { "name": "szek", "width": 0.5, "length": 0.8 },
-      { "name": "szek", "width": 0.5, "length": 0.7 },
-      { "name": "komod", "width": 1.3, "length": 0.8 }
-  ]
-};
+// const requestData = {
+//   "width": 5.2,
+//   "length": 2.4,
+//   "furnitures": [
+//       { "name": "agy", "width": 1.3, "length": 2 },
+//       { "name": "szekreny", "width": 1.7, "length": 0.6 },
+//       { "name": "szonyeg", "width": 0.8, "length": 1.8 },
+//       { "name": "ejjeli szekreny", "width": 0.5, "length": 0.5 },
+//       { "name": "szonyeg", "width": 1.2, "length": 0.4 },
+//       { "name": "szek", "width": 0.5, "length": 0.8 },
+//       { "name": "szek", "width": 0.5, "length": 0.7 },
+//       { "name": "komod", "width": 1.3, "length": 0.8 }
+//   ]
+// };
 
-function sendRequest() {
+const furnituresContainer = document.getElementById('furnituresContainer');
+const roomForm = document.getElementById('roomForm');
+
+function addFurniture() {
+  const furnitureIndex = furnituresContainer.children.length;
+
+  const furnitureDiv = document.createElement('div');
+  furnitureDiv.className = 'furniture-item';
+  furnitureDiv.innerHTML = `
+    <label>Név:</label><br>
+    <input type="text" name="name" required><br>
+    <label>Szélesség (m):</label><br>
+    <input type="number" step="0.01" name="width" required><br>
+    <label>Hosszúság (m):</label><br>
+    <input type="number" step="0.01" name="length" required><br>
+    <button type="button" onclick="removeFurniture(this)">Eltávolítás</button>
+  `;
+  
+  furnituresContainer.appendChild(furnitureDiv);
+}
+
+function removeFurniture(button) {
+  button.parentElement.remove();
+}
+
+roomForm.addEventListener('submit', function(event) {
+  document.getElementById("matrix-table").innerHTML = ""
+  event.preventDefault();
+
+  const width = parseFloat(document.getElementById('roomWidth').value);
+  const length = parseFloat(document.getElementById('roomLength').value);
+
+  const furnitureElements = furnituresContainer.children;
+  const furnitures = [];
+
+  for (let furniture of furnitureElements) {
+    const name = furniture.querySelector('input[name="name"]').value;
+    const furnitureWidth = parseFloat(furniture.querySelector('input[name="width"]').value);
+    const furnitureLength = parseFloat(furniture.querySelector('input[name="length"]').value);
+
+    furnitures.push({
+      name: name,
+      width: furnitureWidth,
+      length: furnitureLength
+    });
+  }
+
+  const requestData = {
+    width: width,
+    length: length,
+    furnitures: furnitures
+  };
+
+  sendRequest(requestData);
+});
+
+
+function sendRequest(requestData) {
   fetch('https://localhost:7241/RoomApi', {
       method: 'POST',
       headers: {

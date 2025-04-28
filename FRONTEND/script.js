@@ -29,9 +29,7 @@ function addFurniture() {
     <input type="number" step="0.01" name="width" required placeholder="4.3 m"><br>
     <label>Hosszúság (m):</label><br>
     <input type="number" step="0.01" name="length" required placeholder="5.2 m"><br>
-    <div class="w-50 m-auto text-center mt-3">
-      <button type="button" onclick="removeFurniture(this)" class="m-auto btn btn-danger">Eltávolítás</button>
-    </div>
+    <button type="button" onclick="removeFurniture(this)" class="mt-3 btn btn-danger">Eltávolítás</button>
   `;
   
   furnituresContainer.appendChild(furnitureDiv);

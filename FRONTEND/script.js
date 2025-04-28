@@ -3,14 +3,14 @@ const requestData = {
   "width": 5.2,
   "length": 2.4,
   "furnitures": [
-      { "name": "agy", "width": 1.6, "length": 2 },
-      { "name": "szekreny", "width": 1.2, "length": 0.6 },
+      { "name": "agy", "width": 1.3, "length": 2 },
+      { "name": "szekreny", "width": 1.7, "length": 0.6 },
       { "name": "szonyeg", "width": 0.8, "length": 1.8 },
       { "name": "ejjeli szekreny", "width": 0.5, "length": 0.5 },
       { "name": "szonyeg", "width": 1.2, "length": 0.4 },
       { "name": "szek", "width": 0.5, "length": 0.8 },
       { "name": "szek", "width": 0.5, "length": 0.7 },
-      { "name": "komod", "width": 1.3, "length": 0.8 },
+      { "name": "komod", "width": 1.3, "length": 0.8 }
   ]
 };
 

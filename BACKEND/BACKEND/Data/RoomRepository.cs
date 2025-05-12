@@ -1,4 +1,4 @@
-﻿using BACKEND.Classes;
+﻿using BACKEND.Model;
 
 namespace BACKEND.Data
 {

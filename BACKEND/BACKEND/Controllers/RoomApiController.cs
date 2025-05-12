@@ -1,4 +1,4 @@
-﻿using BACKEND.Classes;
+﻿using BACKEND.Model;
 using BACKEND.Data;
 using Microsoft.AspNetCore.Mvc;
 
